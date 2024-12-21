@@ -1,10 +1,12 @@
 import useFetchBook from "../hooks/useFetchBook"
+import Pagination from "./Pagination"
 import TableHead from "./TableHead"
 const Table: React.FC = () => {
   const bookData = useFetchBook()
   if(!bookData) return
   else console.log(bookData)
   return (
+<>
 <table className="table">
   <thead>
     <TableHead/>
@@ -25,6 +27,8 @@ const Table: React.FC = () => {
     })}
   </tbody>
 </table>
+<Pagination/>
+</>
   )
 }
 
