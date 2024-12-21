@@ -1,0 +1,1 @@
+export const TABLE_HEADER = ["Book Id","Book Name","Book Desc", "Book Author","No of Page","Book Category","Book Price","Released Year"]
