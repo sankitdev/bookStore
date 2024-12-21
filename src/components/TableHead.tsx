@@ -1,14 +1,8 @@
+import { TABLE_HEADER } from "../constant";
 const TableHead = () => {
   return (
     <tr>
-      <th scope="col">Book Id</th>
-      <th scope="col">Book Name</th>
-      <th scope="col">Book Desc</th>
-      <th scope="col">Book Author</th>
-      <th scope="col">No of Page</th>
-      <th scope="col">Book Category</th>
-      <th scope="col">Book Price</th>
-      <th scope="col">Released Year</th>
+     {TABLE_HEADER.map((header)=> <th scope="col">{header}</th>)}
     </tr>
   );
 };
