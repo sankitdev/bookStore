@@ -1,6 +1,5 @@
 import useFetchBook from "../hooks/useFetchBook";
 import Button from "./Button";
-import Pagination from "./Pagination";
 import TableHead from "./TableHead";
 import { BOOK_ACTION_BUTTONS, handleFunction } from "../constant";
 import { Book } from "../types/types";
@@ -17,9 +16,10 @@ const Table = () => {
   }
   return (
     <>
-      {BOOK_ACTION_BUTTONS.map((btns) => (
-        <Button text={btns.label} action={() => handleAction(btns.action)} />
-      ))}
+      {BOOK_ACTION_BUTTONS.map((btns) => {
+        const { label, action } = btns;
+        return <Button text={label} action={() => handleAction(action)} />;
+      })}
       <table className="table">
         <thead>
           <TableHead />
@@ -40,7 +40,7 @@ const Table = () => {
           })}
         </tbody>
       </table>
-      <Pagination />
+      {/* <Pagination /> */}
     </>
   );
 };
