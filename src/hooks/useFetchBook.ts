@@ -1,21 +1,11 @@
 import { useEffect, useState } from "react";
+import { Book } from "../types/types";
 
-interface Book {
-  bookId: number;
-  bookName: string;
-  bookDesc: string;
-  bookAuthor: string;
-  noOfPages: number;
-  bookCategory: string;
-  bookPrice: number;
-  releasedYear: number;
-}
-
-async function fetchBookData():Promise <Book[]> {
+async function fetchBookData(): Promise<Book[]> {
   try {
     const response = await fetch("mockBooks.json");
     const data: Book[] = await response.json();
-    return data
+    return data;
   } catch (error) {
     console.error(error);
     return [];
@@ -29,8 +19,8 @@ function useFetchBook() {
     const fetchData = async () => {
       const data = await fetchBookData();
       setBookData(data);
-    } 
-    fetchData()
+    };
+    fetchData();
   }, []);
   return bookData;
 }
