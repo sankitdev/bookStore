@@ -14,6 +14,7 @@ const Table = () => {
     setIsModelOpen,
     books,
     setBooks,
+    modeltype,
     setOriginalBooks,
   } = useTableState();
   const bookData = useFetchBook();
@@ -25,6 +26,16 @@ const Table = () => {
     }
   }, [bookData, setBooks]);
   const displayedBooks = index === null ? books : books.slice(index, index + 5);
+  const handleSubmit = (book: Book) => {
+    if (modeltype === "add") {
+      setBooks([...books, book]);
+    } else if (modeltype === "edit") {
+      const updatedBooks = books.map((item) =>
+        item.bookId === book.bookId ? book : item
+      );
+      setBooks(updatedBooks);
+    }
+  };
   return (
     <>
       {BOOK_ACTION_BUTTONS.map((btns) => {
@@ -37,7 +48,12 @@ const Table = () => {
           />
         );
       })}
-      <Model isModelOpen={isModelOpen} setIsModelOpen={setIsModelOpen} />
+      <Model
+        isModelOpen={isModelOpen}
+        setIsModelOpen={setIsModelOpen}
+        modalType={modeltype}
+        onSubmit={handleSubmit}
+      />
       <table className="table">
         <thead>
           <TableHead />
