@@ -7,67 +7,85 @@ export const bookActions: { [key: string]: (setters: StateSetters) => void } = {
   updateByNameAndAuthor: ({ setIsModelOpen }) => {
     setIsModelOpen(true);
   },
-  deleteByBookId: () => {
-    alert("Deleting book by ID...");
+  deleteByBookId: ({ setIsModelOpen }) => {
+    setIsModelOpen(true);
   },
-  deleteByBookName: () => {
-    alert("Deleting book by name...");
+  deleteByBookName: ({ setIsModelOpen }) => {
+    setIsModelOpen(true);
   },
-  deleteByBookDescAndAuthor: () => {
-    alert("Deleting book by description and author...");
+  deleteByBookDescAndAuthor: ({ setIsModelOpen }) => {
+    setIsModelOpen(true);
   },
-  deleteByBookNameAndCategory: () => {
-    alert("Deleting book by name and category...");
+  deleteByBookNameAndCategory: ({ setIsModelOpen }) => {
+    setIsModelOpen(true);
   },
-  showAll: ({ setIndex }) => {
+  showAll: ({ setIndex, setOriginalBooks, originalBooks }) => {
     setIndex(null);
+    setOriginalBooks(originalBooks);
   },
-  showBookById: () => {
-    alert("Showing book by ID...");
+  showBookById: ({ setIsModelOpen }) => {
+    setIsModelOpen(true);
   },
-  showBookByName: () => {
-    alert("Showing book by name...");
+  showBookByName: ({ setIsModelOpen }) => {
+    setIsModelOpen(true);
   },
-  showBookByNameAndAuthor: () => {
-    alert("Showing book by name and author...");
+  showBookByNameAndAuthor: ({ setIsModelOpen }) => {
+    setIsModelOpen(true);
   },
-  showBookPagesMoreThan100: () => {
-    alert("Showing book pages more than 100...");
+  showBookPagesMoreThan100: ({ setBooks, originalBooks }) => {
+    setBooks(originalBooks.filter((book) => book.noOfPages > 100));
   },
-  showBookPagesLessThan90MoreThan25: () => {
-    alert("Showing book pages less than 90 and more than 25...");
+  showBookPagesLessThan90MoreThan25: ({ setBooks, originalBooks }) => {
+    setBooks(
+      originalBooks.filter((book) => book.noOfPages < 90 && book.noOfPages > 25)
+    );
   },
-  showBookPagesLessThan90MoreThan25ButNot80: () => {
-    alert("Showing book pages less than 90 and more than 25 but not 80...");
+  showBookPagesLessThan90MoreThan25ButNot80: ({ setBooks, originalBooks }) => {
+    setBooks(
+      originalBooks.filter(
+        (book) =>
+          book.noOfPages < 90 && book.noOfPages > 25 && book.noOfPages !== 80
+      )
+    );
   },
-  showBookPagesZero: () => {
-    alert("Showing book pages zero...");
+  showBookPagesZero: ({ setBooks, originalBooks }) => {
+    setBooks(originalBooks.filter((book) => book.noOfPages === 0));
   },
-  showBookReleasedYear2015And2001: () => {
-    alert("Showing book released year 2015 and 2001...");
+  showBookReleasedYear2015And2001: ({ setBooks, originalBooks }) => {
+    setBooks(
+      originalBooks.filter(
+        (book) => book.releasedYear === 2015 || book.releasedYear === 2001
+      )
+    );
   },
-  sortByBookName: ({ setSort }) => {
-    alert("Sorting books by name...");
-    if (setSort) setSort("name");
+  sortByBookName: ({ setBooks, originalBooks }) => {
+    setBooks(
+      [...originalBooks].sort((a, b) => a.bookName.localeCompare(b.bookName))
+    );
   },
-  sortByBookPrice: ({ setSort }) => {
-    alert("Sorting books by price...");
-    if (setSort) setSort("price");
+  sortByBookPrice: ({ setBooks, originalBooks }) => {
+    setBooks([...originalBooks].sort((a, b) => a.bookPrice - b.bookPrice));
   },
-  sortByBookAuthor: ({ setSort }) => {
-    alert("Sorting books by author...");
-    if (setSort) setSort("author");
+  sortByBookAuthor: ({ setBooks, originalBooks }) => {
+    setBooks(
+      [...originalBooks].sort((a, b) =>
+        a.bookAuthor.localeCompare(b.bookAuthor)
+      )
+    );
   },
-  sortByBookNoOfPages: ({ setSort }) => {
-    alert("Sorting books by number of pages...");
-    if (setSort) setSort("pages");
+  sortByBookNoOfPages: ({ setBooks, originalBooks }) => {
+    setBooks([...originalBooks].sort((a, b) => a.noOfPages - b.noOfPages));
   },
-  sortByBookCategory: ({ setSort }) => {
-    alert("Sorting books by category...");
-    if (setSort) setSort("category");
+  sortByBookCategory: ({ setBooks, originalBooks }) => {
+    setBooks(
+      [...originalBooks].sort((a, b) =>
+        a.bookCategory.localeCompare(b.bookCategory)
+      )
+    );
   },
-  sortByBookReleasedYear: ({ setSort }) => {
-    alert("Sorting books by released year...");
-    if (setSort) setSort("year");
+  sortByBookReleasedYear: ({ setBooks, originalBooks }) => {
+    setBooks(
+      [...originalBooks].sort((a, b) => a.releasedYear - b.releasedYear)
+    );
   },
 };
