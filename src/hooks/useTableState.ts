@@ -4,6 +4,7 @@ import { Book } from "../types/types.ts";
 function useTableState() {
   const [index, setIndex] = useState<number | null>(0);
   const [isModelOpen, setIsModelOpen] = useState<boolean>(false);
+  const [modeltype, setModelType] = useState<string>("");
   const [originalBooks, setOriginalBooks] = useState<Book[]>([]);
   const [books, setBooks] = useState<Book[]>([]);
   function handleAction(action: string) {
@@ -14,6 +15,7 @@ function useTableState() {
         setIsModelOpen,
         setOriginalBooks,
         originalBooks,
+        setModelType,
       });
     } else {
       alert("Function not implemented");
@@ -24,6 +26,8 @@ function useTableState() {
     index,
     setIndex,
     handleAction,
+    modeltype,
+    setModelType,
     isModelOpen,
     setIsModelOpen,
     books,
