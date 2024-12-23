@@ -1,21 +1,18 @@
-import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-function Model() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+function Model({
+  isModelOpen,
+  setIsModelOpen,
+}: {
+  isModelOpen: boolean;
+  setIsModelOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
+  const handleClose = () => setIsModelOpen(false);
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch static backdrop modal
-      </Button>
-
       <Modal
-        show={show}
+        show={isModelOpen}
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
