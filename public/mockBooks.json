@@ -1,7 +1,7 @@
 [
   {
     "bookId": 1,
-    "bookName": "The Great Gatsby",
+    "bookName": "Zebra Tales",
     "bookDesc": "A novel set in the Jazz Age, exploring themes of wealth and love.",
     "bookAuthor": "F. Scott Fitzgerald",
     "noOfPages": 180,
@@ -11,7 +11,7 @@
   },
   {
     "bookId": 2,
-    "bookName": "1984",
+    "bookName": "Mystic Adventures",
     "bookDesc": "A dystopian novel about a totalitarian regime and surveillance.",
     "bookAuthor": "George Orwell",
     "noOfPages": 328,
@@ -21,37 +21,37 @@
   },
   {
     "bookId": 3,
-    "bookName": "To Kill a Mockingbird",
+    "bookName": "Quantum Dreams",
     "bookDesc": "A novel addressing racial injustice in the Deep South.",
     "bookAuthor": "Harper Lee",
-    "noOfPages": 281,
+    "noOfPages": 80,
     "bookCategory": "Classic",
     "bookPrice": 12.99,
     "releasedYear": 1960
   },
   {
     "bookId": 4,
-    "bookName": "The Catcher in the Rye",
+    "bookName": "Journey of Echoes",
     "bookDesc": "A story about teenage rebellion and angst.",
     "bookAuthor": "J.D. Salinger",
-    "noOfPages": 214,
+    "noOfPages": 75,
     "bookCategory": "Classic",
     "bookPrice": 11.5,
-    "releasedYear": 1951
+    "releasedYear": 2001
   },
   {
     "bookId": 5,
-    "bookName": "Sapiens: A Brief History of Humankind",
+    "bookName": "Crimson Horizons",
     "bookDesc": "An exploration of the history and impact of the human species.",
     "bookAuthor": "Yuval Noah Harari",
     "noOfPages": 498,
     "bookCategory": "Non-Fiction",
     "bookPrice": 19.99,
-    "releasedYear": 2011
+    "releasedYear": 2015
   },
   {
     "bookId": 6,
-    "bookName": "Pride and Prejudice",
+    "bookName": "Vortex Tales",
     "bookDesc": "A romantic novel that explores manners and matrimonial machinations.",
     "bookAuthor": "Jane Austen",
     "noOfPages": 279,
@@ -61,17 +61,17 @@
   },
   {
     "bookId": 7,
-    "bookName": "The Hobbit",
+    "bookName": "Silent Whispers",
     "bookDesc": "A fantasy adventure about Bilbo Baggins and his journey to the Lonely Mountain.",
     "bookAuthor": "J.R.R. Tolkien",
-    "noOfPages": 310,
+    "noOfPages": 0,
     "bookCategory": "Fantasy",
     "bookPrice": 14.99,
     "releasedYear": 1937
   },
   {
     "bookId": 8,
-    "bookName": "The Alchemist",
+    "bookName": "Glowing Realms",
     "bookDesc": "A philosophical novel about a shepherd's journey to find treasure.",
     "bookAuthor": "Paulo Coelho",
     "noOfPages": 208,
@@ -81,7 +81,7 @@
   },
   {
     "bookId": 9,
-    "bookName": "The Art of War",
+    "bookName": "Emerald Echoes",
     "bookDesc": "An ancient Chinese military treatise attributed to Sun Tzu.",
     "bookAuthor": "Sun Tzu",
     "noOfPages": 112,
@@ -91,7 +91,7 @@
   },
   {
     "bookId": 10,
-    "bookName": "The Road",
+    "bookName": "Timeless Saga",
     "bookDesc": "A post-apocalyptic novel about a father and son's survival journey.",
     "bookAuthor": "Cormac McCarthy",
     "noOfPages": 287,
