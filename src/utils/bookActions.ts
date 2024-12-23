@@ -1,7 +1,8 @@
 import { StateSetters } from "../types/types";
 
 export const bookActions: { [key: string]: (setters: StateSetters) => void } = {
-  updateByName: ({ setIsModelOpen }) => {
+  updateByName: ({ setIsModelOpen, setModelType }) => {
+    setModelType("UPDATE_BY_NAME");
     setIsModelOpen(true);
   },
   updateByNameAndAuthor: ({ setIsModelOpen }) => {
