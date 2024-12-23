@@ -49,10 +49,3 @@ export const BOOK_ACTION_BUTTONS = [
   { label: "Sort By Book Category", action: "sortByBookCategory" },
   { label: "Sort By Book Released Year", action: "sortByBookReleasedYear" },
 ];
-
-export const handleFunction: { [key: string]: () => void } = {
-  updateByName: () => alert("Updating book by name..."),
-  deleteByBookId: () => alert("Deleting book by ID..."),
-  showAllBooks: () => alert("Showing all books..."),
-  sortByBookName: () => alert("Sorting books by name..."),
-};
