@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { bookActions } from "../utils/bookActions.ts";
 import { Book } from "../types/types.ts";
+import { MODAL_TYPES } from "../config/modalConfig.ts";
 function useTableState() {
   const [index, setIndex] = useState<number | null>(0);
-  const [isModelOpen, setIsModelOpen] = useState<boolean>(false);
-  const [modeltype, setModelType] = useState<string>("");
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [modalType, setModalType] =
+    useState<keyof typeof MODAL_TYPES>("UPDATE_NAME");
   const [originalBooks, setOriginalBooks] = useState<Book[]>([]);
   const [books, setBooks] = useState<Book[]>([]);
   function handleAction(action: string) {
@@ -12,10 +14,10 @@ function useTableState() {
       bookActions[action]({
         setIndex,
         setBooks,
-        setIsModelOpen,
+        setIsModalOpen,
         setOriginalBooks,
         originalBooks,
-        setModelType,
+        setModalType,
       });
     } else {
       alert("Function not implemented");
@@ -26,10 +28,10 @@ function useTableState() {
     index,
     setIndex,
     handleAction,
-    modeltype,
-    setModelType,
-    isModelOpen,
-    setIsModelOpen,
+    modalType,
+    setModalType,
+    isModalOpen,
+    setIsModalOpen,
     books,
     setBooks,
     setOriginalBooks,
