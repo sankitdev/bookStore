@@ -8,7 +8,8 @@ const Table = () => {
   const { index, handleAction } = useTableState();
   const bookData = useFetchBook();
   if (!bookData) return;
-
+  const displayedBooks =
+    index === null ? bookData : bookData.slice(index, index + 5);
   return (
     <>
       {BOOK_ACTION_BUTTONS.map((btns) => {
@@ -26,7 +27,7 @@ const Table = () => {
           <TableHead />
         </thead>
         <tbody>
-          {bookData.slice(index, index + 5).map((books) => {
+          {displayedBooks.map((books) => {
             const { bookId } = books;
             return (
               <tr key={bookId}>
@@ -41,7 +42,6 @@ const Table = () => {
           })}
         </tbody>
       </table>
-      {/* <Pagination /> */}
     </>
   );
 };
