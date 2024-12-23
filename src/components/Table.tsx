@@ -4,38 +4,30 @@ import TableHead from "./TableHead";
 import { BOOK_ACTION_BUTTONS } from "../constant";
 import { Book } from "../types/types";
 import useTableState from "../hooks/useTableState";
-import Model from "./Modal";
+import Modal from "./Modal";
 import { useEffect } from "react";
+// import { MODAL_TYPES } from "../config/modalConfig";
 const Table = () => {
   const {
     index,
     handleAction,
-    isModelOpen,
-    setIsModelOpen,
+    isModalOpen,
+    setIsModalOpen,
     books,
     setBooks,
-    modeltype,
+    modalType,
     setOriginalBooks,
   } = useTableState();
   const bookData = useFetchBook();
-  if (!bookData) return <div>Loading...</div>;
   useEffect(() => {
     if (bookData) {
       setBooks(bookData);
       setOriginalBooks(bookData);
     }
-  }, [bookData, setBooks]);
+  }, [bookData, setBooks, setOriginalBooks]);
+  if (!bookData) return <div>Loading...</div>;
   const displayedBooks = index === null ? books : books.slice(index, index + 5);
-  const handleSubmit = (book: Book) => {
-    if (modeltype === "add") {
-      setBooks([...books, book]);
-    } else if (modeltype === "edit") {
-      const updatedBooks = books.map((item) =>
-        item.bookId === book.bookId ? book : item
-      );
-      setBooks(updatedBooks);
-    }
-  };
+  const handleSubmit = () => {};
   return (
     <>
       {BOOK_ACTION_BUTTONS.map((btns) => {
@@ -48,10 +40,10 @@ const Table = () => {
           />
         );
       })}
-      <Model
-        isModelOpen={isModelOpen}
-        setIsModelOpen={setIsModelOpen}
-        modalType={modeltype}
+      <Modal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        modalType={modalType}
         onSubmit={handleSubmit}
       />
       <table className="table">
