@@ -5,12 +5,26 @@ import { BOOK_ACTION_BUTTONS } from "../constant";
 import { Book } from "../types/types";
 import useTableState from "../hooks/useTableState";
 import Model from "./Modal";
+import { useEffect } from "react";
 const Table = () => {
-  const { index, handleAction, isModelOpen, setIsModelOpen } = useTableState();
+  const {
+    index,
+    handleAction,
+    isModelOpen,
+    setIsModelOpen,
+    books,
+    setBooks,
+    setOriginalBooks,
+  } = useTableState();
   const bookData = useFetchBook();
-  if (!bookData) return;
-  const displayedBooks =
-    index === null ? bookData : bookData.slice(index, index + 5);
+  if (!bookData) return <div>Loading...</div>;
+  useEffect(() => {
+    if (bookData) {
+      setBooks(bookData);
+      setOriginalBooks(bookData);
+    }
+  }, [bookData, setBooks]);
+  const displayedBooks = index === null ? books : books.slice(index, index + 5);
   return (
     <>
       {BOOK_ACTION_BUTTONS.map((btns) => {
