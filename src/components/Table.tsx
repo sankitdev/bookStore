@@ -4,8 +4,9 @@ import TableHead from "./TableHead";
 import { BOOK_ACTION_BUTTONS } from "../constant";
 import { Book } from "../types/types";
 import useTableState from "../hooks/useTableState";
+import Model from "./Modal";
 const Table = () => {
-  const { index, handleAction } = useTableState();
+  const { index, handleAction, isModelOpen, setIsModelOpen } = useTableState();
   const bookData = useFetchBook();
   if (!bookData) return;
   const displayedBooks =
@@ -22,6 +23,7 @@ const Table = () => {
           />
         );
       })}
+      <Model isModelOpen={isModelOpen} setIsModelOpen={setIsModelOpen} />
       <table className="table">
         <thead>
           <TableHead />
