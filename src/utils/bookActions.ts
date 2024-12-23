@@ -1,37 +1,45 @@
 import { StateSetters } from "../types/types";
 
 export const bookActions: { [key: string]: (setters: StateSetters) => void } = {
-  updateByName: ({ setIsModelOpen, setModelType }) => {
-    setModelType("UPDATE_BY_NAME");
-    setIsModelOpen(true);
+  updateByName: ({ setIsModalOpen, setModalType }) => {
+    setModalType("UPDATE_NAME");
+    setIsModalOpen(true);
   },
-  updateByNameAndAuthor: ({ setIsModelOpen }) => {
-    setIsModelOpen(true);
+  updateByNameAndAuthor: ({ setIsModalOpen, setModalType }) => {
+    setModalType("UPDATE_FULL");
+    setIsModalOpen(true);
   },
-  deleteByBookId: ({ setIsModelOpen }) => {
-    setIsModelOpen(true);
+  deleteByBookId: ({ setIsModalOpen, setModalType }) => {
+    setModalType("DELETE");
+    setIsModalOpen(true);
   },
-  deleteByBookName: ({ setIsModelOpen }) => {
-    setIsModelOpen(true);
+  deleteByBookName: ({ setIsModalOpen, setModalType }) => {
+    setModalType("DELETE");
+    setIsModalOpen(true);
   },
-  deleteByBookDescAndAuthor: ({ setIsModelOpen }) => {
-    setIsModelOpen(true);
+  deleteByBookDescAndAuthor: ({ setIsModalOpen, setModalType }) => {
+    setModalType("DELETE");
+    setIsModalOpen(true);
   },
-  deleteByBookNameAndCategory: ({ setIsModelOpen }) => {
-    setIsModelOpen(true);
+  deleteByBookNameAndCategory: ({ setIsModalOpen, setModalType }) => {
+    setModalType("DELETE");
+    setIsModalOpen(true);
   },
   showAll: ({ setIndex, setOriginalBooks, originalBooks }) => {
     setIndex(null);
     setOriginalBooks(originalBooks);
   },
-  showBookById: ({ setIsModelOpen }) => {
-    setIsModelOpen(true);
+  showBookById: ({ setIsModalOpen, setModalType }) => {
+    setModalType("UPDATE_NAME");
+    setIsModalOpen(true);
   },
-  showBookByName: ({ setIsModelOpen }) => {
-    setIsModelOpen(true);
+  showBookByName: ({ setIsModalOpen, setModalType }) => {
+    setModalType("DELETE");
+    setIsModalOpen(true);
   },
-  showBookByNameAndAuthor: ({ setIsModelOpen }) => {
-    setIsModelOpen(true);
+  showBookByNameAndAuthor: ({ setIsModalOpen, setModalType }) => {
+    setModalType("UPDATE_NAME");
+    setIsModalOpen(true);
   },
   showBookPagesMoreThan100: ({ setBooks, originalBooks }) => {
     setBooks(originalBooks.filter((book) => book.noOfPages > 100));
