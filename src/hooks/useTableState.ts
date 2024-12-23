@@ -1,14 +1,20 @@
 import { useState } from "react";
 import { bookActions } from "../utils/bookActions.ts";
-
+import { Book } from "../types/types.ts";
 function useTableState() {
   const [index, setIndex] = useState<number | null>(0);
-  const [filter, setFilter] = useState<string | null>(null);
-  const [sort, setSort] = useState<string | null>(null);
   const [isModelOpen, setIsModelOpen] = useState<boolean>(false);
+  const [originalBooks, setOriginalBooks] = useState<Book[]>([]);
+  const [books, setBooks] = useState<Book[]>([]);
   function handleAction(action: string) {
     if (bookActions[action]) {
-      bookActions[action]({ setIndex, setFilter, setSort, setIsModelOpen });
+      bookActions[action]({
+        setIndex,
+        setBooks,
+        setIsModelOpen,
+        setOriginalBooks,
+        originalBooks,
+      });
     } else {
       alert("Function not implemented");
     }
@@ -20,8 +26,10 @@ function useTableState() {
     handleAction,
     isModelOpen,
     setIsModelOpen,
-    filter,
-    sort,
+    books,
+    setBooks,
+    setOriginalBooks,
+    originalBooks,
   };
 }
 
