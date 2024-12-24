@@ -3,7 +3,7 @@ import { ModalHandlerProps } from "../types/types";
 export const handleModalSubmit = ({
   modalType,
   formData,
-  books,
+  originalBooks,
   setBooks,
 }: ModalHandlerProps) => {
   try {
@@ -11,8 +11,8 @@ export const handleModalSubmit = ({
       case "UPDATE_NAME":
         setBooks((prevBooks) =>
           prevBooks.map((book) =>
-            book.bookName === formData.bookName
-              ? { ...book, bookName: formData.bookName }
+            book.bookName === formData.oldBookName
+              ? { ...book, bookName: formData.newBookName }
               : book
           )
         );
@@ -21,11 +21,12 @@ export const handleModalSubmit = ({
       case "UPDATE_FULL":
         setBooks((prevBooks) =>
           prevBooks.map((book) =>
-            book.bookName === formData.bookName
+            book.bookName === formData.oldBookName &&
+            book.bookAuthor === formData.oldAuthor
               ? {
                   ...book,
-                  bookName: formData.bookName,
-                  author: formData.author,
+                  bookName: formData.newBookName,
+                  bookAuthor: formData.newAuthor,
                 }
               : book
           )
@@ -57,33 +58,32 @@ export const handleModalSubmit = ({
         break;
 
       case "DELETE_BY_DESC_AUTHOR":
-        setBooks((prevBooks) =>
-          prevBooks.filter(
+        setBooks((prevBooks) => {
+          const filteredBooks = prevBooks.filter(
             (book) =>
-              !(
-                book.bookDes === formData.description &&
-                book.bookAuthor === formData.author
-              )
-          )
-        );
+              book.bookDes !== formData.description &&
+              book.bookAuthor !== formData.author
+          );
+          return filteredBooks;
+        });
         break;
 
       case "SHOW_BY_ID":
-        const bookById = books.filter(
+        const bookById = originalBooks.filter(
           (book) => book.bookId.toString() === formData.bookId
         );
         setBooks(bookById);
         break;
 
       case "SHOW_BY_NAME":
-        const bookByName = books.filter(
+        const bookByName = originalBooks.filter(
           (book) => book.bookName === formData.bookName
         );
         setBooks(bookByName);
         break;
 
       case "SHOW_BY_NAME_AUTHOR":
-        const bookByNameAuthor = books.filter(
+        const bookByNameAuthor = originalBooks.filter(
           (book) =>
             book.bookName === formData.bookName &&
             book.bookAuthor === formData.author
