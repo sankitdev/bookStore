@@ -17,6 +17,7 @@ const Table = () => {
     books,
     setBooks,
     modalType,
+    originalBooks,
     setOriginalBooks,
   } = useTableState();
   const bookData = useFetchBook();
@@ -32,6 +33,7 @@ const Table = () => {
       modalType,
       formData,
       books,
+      originalBooks,
       setBooks,
     });
 
