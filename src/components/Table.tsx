@@ -6,7 +6,8 @@ import { Book } from "../types/types";
 import useTableState from "../hooks/useTableState";
 import Modal from "./Modal";
 import { useEffect } from "react";
-// import { MODAL_TYPES } from "../config/modalConfig";
+import { handleModalSubmit } from "../utils/modalHandler";
+
 const Table = () => {
   const {
     index,
@@ -25,9 +26,24 @@ const Table = () => {
       setOriginalBooks(bookData);
     }
   }, [bookData, setBooks, setOriginalBooks]);
+
+  const handleSubmit = (formData: Record<string, string>) => {
+    const success = handleModalSubmit({
+      modalType,
+      formData,
+      books,
+      setBooks,
+    });
+
+    if (success) {
+      console.log("Success");
+    } else {
+      alert("An error occurred while processing your request");
+    }
+  };
   if (!bookData) return <div>Loading...</div>;
   const displayedBooks = index === null ? books : books.slice(index, index + 5);
-  const handleSubmit = () => {};
+
   return (
     <>
       {BOOK_ACTION_BUTTONS.map((btns) => {
