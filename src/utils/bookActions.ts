@@ -10,7 +10,7 @@ export const bookActions: { [key: string]: (setters: StateSetters) => void } = {
     setIsModalOpen(true);
   },
   deleteByBookId: ({ setIsModalOpen, setModalType }) => {
-    setModalType("DELETE");
+    setModalType("DELETE_BY_ID");
     setIsModalOpen(true);
   },
   deleteByBookName: ({ setIsModalOpen, setModalType }) => {
@@ -18,11 +18,11 @@ export const bookActions: { [key: string]: (setters: StateSetters) => void } = {
     setIsModalOpen(true);
   },
   deleteByBookDescAndAuthor: ({ setIsModalOpen, setModalType }) => {
-    setModalType("DELETE");
+    setModalType("DELETE_BY_DESC_AUTHOR");
     setIsModalOpen(true);
   },
   deleteByBookNameAndCategory: ({ setIsModalOpen, setModalType }) => {
-    setModalType("DELETE");
+    setModalType("DELETE_BY_NAME_CATEGORY");
     setIsModalOpen(true);
   },
   showAll: ({ setIndex, setOriginalBooks, originalBooks }) => {
@@ -30,15 +30,15 @@ export const bookActions: { [key: string]: (setters: StateSetters) => void } = {
     setOriginalBooks(originalBooks);
   },
   showBookById: ({ setIsModalOpen, setModalType }) => {
-    setModalType("UPDATE_NAME");
+    setModalType("SHOW_BY_ID");
     setIsModalOpen(true);
   },
   showBookByName: ({ setIsModalOpen, setModalType }) => {
-    setModalType("DELETE");
+    setModalType("SHOW_BY_NAME");
     setIsModalOpen(true);
   },
   showBookByNameAndAuthor: ({ setIsModalOpen, setModalType }) => {
-    setModalType("UPDATE_NAME");
+    setModalType("SHOW_BY_NAME_AUTHOR");
     setIsModalOpen(true);
   },
   showBookPagesMoreThan100: ({ setBooks, originalBooks }) => {
