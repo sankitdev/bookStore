@@ -13,13 +13,18 @@ export const MODAL_TYPES = {
 export const modalConfig = {
   UPDATE_NAME: {
     title: "Update Book Name",
-    fields: [{ name: "bookName", placeholder: "Enter Book Name" }],
+    fields: [
+      { name: "oldBookName", placeholder: "Enter Current Book Name" },
+      { name: "newBookName", placeholder: "Enter New Book Name" },
+    ],
   },
   UPDATE_FULL: {
     title: "Update Book Details",
     fields: [
-      { name: "bookName", placeholder: "Enter Book Name" },
-      { name: "author", placeholder: "Enter Author Name" },
+      { name: "oldBookName", placeholder: "Enter Current Book Name" },
+      { name: "oldAuthor", placeholder: "Enter Current Author Name" },
+      { name: "newBookName", placeholder: "Enter New Book Name" },
+      { name: "newAuthor", placeholder: "Enter New Author Name" },
     ],
   },
   DELETE: {
@@ -40,8 +45,8 @@ export const modalConfig = {
   DELETE_BY_DESC_AUTHOR: {
     title: "Delete Book by Description and Author",
     fields: [
-      { name: "description", placeholder: "Enter Book Description" },
       { name: "author", placeholder: "Enter Author Name" },
+      { name: "description", placeholder: "Enter Book Description" },
     ],
   },
   SHOW_BY_ID: {
