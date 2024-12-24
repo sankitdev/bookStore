@@ -29,6 +29,13 @@ export type ModalProps = {
   onSubmit: (data: Record<string, string>) => void;
 };
 
+export type ModalHandlerProps = {
+  modalType: string;
+  formData: Record<string, string>;
+  books: Book[];
+  setBooks: React.Dispatch<React.SetStateAction<Book[]>>;
+};
+
 export type FormData = {
   [key: string]: string;
 };
