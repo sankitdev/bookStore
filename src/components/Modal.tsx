@@ -13,7 +13,6 @@ function ModalComponent({
 }: ModalProps) {
   const [formData, setFormData] = useState<FormData>({});
   const config = modalConfig[modalType as keyof typeof modalConfig];
-  console.log(config);
 
   if (!config) {
     return (
